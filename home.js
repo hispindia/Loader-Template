@@ -1,23 +1,52 @@
 window.Loader = (function () {
+    selected=[];
+
+
+
+    increment=function(ths,value){
+
+
+        if(selected[0]!=value && selected.length!=0)
+        {
+            selected=[];
+            head=document.getElementById("heading").innerHTML="";
+            head1=document.getElementById("heading").innerHTML=value+"%";
+
+        }else{
+            this.heading=document.createElement('h3');
+            this.heading.id="heading";
+            this.heading.innerHTML=value+"%";
+            ths.innerDiv.append(this.heading);
+        }
+
+        selected.push(value);
+
+    }
 
     var Loader = {
         showLoader: function () {
-            var iDiv = document.createElement('div');
-            iDiv.id =this.selector='loader-wrapper';
-            document.getElementsByTagName('body')[0].appendChild(iDiv);
+            this.iDiv = document.createElement('div');
+            this.iDiv.id =this.selector='loader-wrapper';
+            document.getElementsByTagName('body')[0].appendChild(this.iDiv);
 
-            var innerDiv = document.createElement('div');
-            innerDiv.id = 'loader';
+            this.innerDiv = document.createElement('div');
+            this.innerDiv.id = 'loader';
 
-            iDiv.appendChild(innerDiv);
+            this.iDiv.appendChild(this.innerDiv);
             document.getElementById(this.selector).style.visibility = 'visible';
 
-            return this;
+
 
         },
         hideLoader: function () {
             document.getElementById(this.selector).style.visibility = 'hidden';
-            return this;
+
+        },
+        increment:function(val){
+
+            return new increment(this,val);
+
+
         }
 
     };

@@ -17,15 +17,15 @@
     width:150px;
     height: 150px;
     margin: -75px 0 0 -75px;
-    }
+   }
 
 #loader:before{
      content: "";
      position: absolute;
-     top:5px;
-     left:5px;
-     right:5px;
-     bottom: 5px;
+     top:15px;
+     left:15px;
+     right:15px;
+     bottom: 15px;
      border-radius: 50%;
      border: 8px solid #bdbdbd;
      border-top-color: #21618C  ;
@@ -35,6 +35,14 @@
      animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
  }
 
+#heading{
+    position: relative;
+    left:47%;
+    top:43%;
+    margin: 0 0 0 -15px;
+    color:white;
+
+}
 /*
 #loader:after{
     content: "";
