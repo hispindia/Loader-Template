@@ -1,27 +1,27 @@
-window.Loader = (function () {
-
-
+Loader = (function () {
     var Loader = {
-        showLoader: function (selector) {
-            document.getElementById(selector).style.visibility = 'visible';
+        showLoader: function () {
+            var iDiv = document.createElement('div');
+            iDiv.id =this.selector='loader-wrapper';
+            document.getElementsByTagName('body')[0].appendChild(iDiv);
 
+            var innerDiv = document.createElement('div');
+            innerDiv.id = 'loader';
+
+            iDiv.appendChild(innerDiv);
+            document.getElementById(this.selector).style.visibility = 'hidden';
+
+            return this;
 
         },
-        hideLoader:function(selector){
-            document.getElementById(selector).style.visibility = 'hidden';
-
+        hideLoader: function () {
+            document.getElementById(this.selector).style.visibility = 'visible';
+            return this;
         }
+
     };
 
+
     return Loader;
-}());
+});
 
-
-/*
-
-Loader.prototype.hideLoader=function(){
-    document.getElementById(selector).style.visibility = 'hidden';
-
-}
-
-*/
