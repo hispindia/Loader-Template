@@ -1,4 +1,5 @@
-Loader = (function () {
+window.Loader = (function () {
+
     var Loader = {
         showLoader: function () {
             var iDiv = document.createElement('div');
@@ -9,13 +10,13 @@ Loader = (function () {
             innerDiv.id = 'loader';
 
             iDiv.appendChild(innerDiv);
-            document.getElementById(this.selector).style.visibility = 'hidden';
+            document.getElementById(this.selector).style.visibility = 'visible';
 
             return this;
 
         },
         hideLoader: function () {
-            document.getElementById(this.selector).style.visibility = 'visible';
+            document.getElementById(this.selector).style.visibility = 'hidden';
             return this;
         }
 
@@ -23,5 +24,5 @@ Loader = (function () {
 
 
     return Loader;
-});
+}());
 
