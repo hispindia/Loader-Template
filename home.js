@@ -1,12 +1,10 @@
+/**
+ * Created by sudiksha on 10/27/2017.
+ */
 window.Loader = (function () {
     selected=[];
-
-
-
     increment=function(ths,value){
-
-
-        if(selected[0]!=value && selected.length!=0)
+       if(selected[0]!=value && selected.length!=0)
         {
             selected=[];
             head=document.getElementById("heading").innerHTML="";
@@ -18,15 +16,14 @@ window.Loader = (function () {
             this.heading.innerHTML=value+"%";
             ths.innerDiv.append(this.heading);
         }
-
         selected.push(value);
-
     }
 
     var Loader = {
         showLoader: function () {
             this.iDiv = document.createElement('div');
             this.iDiv.id =this.selector='loader-wrapper';
+            this.iDiv.className =this.selector_load='loader-wrapper-load';
             document.getElementsByTagName('body')[0].appendChild(this.iDiv);
 
             this.innerDiv = document.createElement('div');
@@ -34,19 +31,16 @@ window.Loader = (function () {
 
             this.iDiv.appendChild(this.innerDiv);
             document.getElementById(this.selector).style.visibility = 'visible';
-
-
-
         },
         hideLoader: function () {
-            document.getElementById(this.selector).style.visibility = 'hidden';
-
+            var load=document.getElementsByClassName (this.selector_load);
+            for (var k = 0; k < load.length; k++) {
+                load[k].style.visibility = 'hidden';
+            }
         },
         increment:function(val){
 
             return new increment(this,val);
-
-
         }
 
     };
@@ -54,4 +48,3 @@ window.Loader = (function () {
 
     return Loader;
 }());
-
